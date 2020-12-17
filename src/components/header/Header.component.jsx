@@ -26,7 +26,10 @@ Header.ButtonLink = function HeaderButtonLnk({ children, ...restProps }) {
 
 Header.ButtonsContainer = function HeaderButtonsContainer({ children, ...restProps }) {
   return (
-    <ButtonsContainer {...restProps}>{children}</ButtonsContainer>
+    <ButtonsContainer {...restProps}>
+      <span></span>
+      {children}
+    </ButtonsContainer>
   );
 };
 
