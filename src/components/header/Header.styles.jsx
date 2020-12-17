@@ -64,40 +64,45 @@ export const LogoText = styled.div`
 `;
 
 export const ButtonsContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-
-  &>:first-child, &>:nth-child(2) {
-    margin-right: 1rem;
-  }
-
-  @media (max-width: 1000px) {
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
-    border-top: 4px solid #303030;
     position: relative;
 
-    &>:nth-child(2) {
-      margin: .5rem auto;
+    &>a:nth-of-type(2) {
+      margin: .5rem auto!important;
     }
-    &>:not(:nth-child(2)) {
+    &>a:not(:nth-of-type(2)) {
       margin: 0 auto;
     }
 
-    &:after {
-      position: absolute:
-      left: 50%;
-      content: '';
-      height: 3px;
-      background: #303030;
-      transition: all 0.5s ease-in;
-      width: 100%;
-      top: 1px !important;
+    span {
+      z-index: 100;
+      transition: all 0.2s ease-in-out;
+      &:before {
+        content: '';
+        position: absolute;
+        height: 5px;
+        width: 40%;
+        right: 0;
+        top: 0;
+        background: #303030;
+      }
+      &:after {
+        position: absolute;
+        content: '';
+        height: 5px;
+        background: #303030;
+        width: 40%;
+        top: 1rem;
+        right: 0;
+        transition: all 1s ease-in-out;
+      }
+
+      &:hover:after {
+        top: 7rem;
+      }
     }
-
-  }
-
 `;
 
 export const Anchor = styled.a`
@@ -106,20 +111,8 @@ export const Anchor = styled.a`
   color: #303030;
   position: relative;
   text-decoration: none;
-  &:after {
-    position: absolute;
-    left: 50%;
-    content: '';
-    height: 3px;
-    background: #303030;
-    transition: all 0.5s ease-in;
-    width: 0;
-    bottom: -1px;
-  }
-  &:hover:after {
-    width: 100%;
-    left: 0;
-  }
+  transition: all 0.5s ease-in;
+  opacity: ${props => props.showMenuItem ? 1 : 0};
 
   @media (max-width: 1000px) {
     font-size: 1.2rem;
@@ -132,20 +125,8 @@ export const ButtonLink = styled(ReactRouterLink)`
   color: #303030;
   position: relative;
   text-decoration: none;
-  &:after {
-    position: absolute;
-    left: 50%;
-  	content: '';
-  	height: 3px;
-    background: #303030;
-    transition: all 0.5s ease-in;
-    width: 0;
-    bottom: -1px;
-  }
-  &:hover:after {
-    width: 100%;
-    left: 0;
-  }
+  transition: all 0.5s ease-in;
+  opacity: ${props => props.showMenuItem ? 1 : 0};
 
   @media (max-width: 1000px) {
     font-size: 1.2rem;
