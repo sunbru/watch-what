@@ -10,13 +10,16 @@ export default function MoviesContainer({ movies }) {
         {
           moviesList.map(({id, title, overview, backdrop_path}) => {
             return (
-              <MovieCard.Card key={id + title}>
-                <MovieCard.Header>{title}</MovieCard.Header>
-                <MovieCard.Body>{overview}</MovieCard.Body>
-                <MovieCard.Image
+              <MovieCard.Card key={id + title} backgroundImage={backdrop_path}>
+                <MovieCard.Blur />
+                <MovieCard.ContentWrap>
+                  <MovieCard.Header>{title}</MovieCard.Header>
+                  <MovieCard.Body>{overview}</MovieCard.Body>
+                </MovieCard.ContentWrap>
+                {/*<MovieCard.Image
                   src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}
                   alt={`${title} poster`}
-                />
+                />*/}
               </MovieCard.Card>
             )
           })
