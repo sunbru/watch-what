@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {HeaderContainer} from '../../containers';
+import {HeaderContainer, MoviesContainer} from '../../containers';
 import {MoviesContext} from '../../context';
 import {fetchPopular} from '../../adapters';
 
@@ -16,6 +16,11 @@ export default function Home() {
     <MoviesContext.Provider value={{ moviesList, setMoviesList }}>
       <section id={`home`}>
         <HeaderContainer />
+        {
+          moviesList.length > 0 ?
+          <MoviesContainer /> :
+          null
+        }
       </section>
     </MoviesContext.Provider>
   );
