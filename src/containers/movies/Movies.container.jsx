@@ -11,7 +11,7 @@ export default function MoviesContainer({ movies }) {
           moviesList.map(({id, title, overview, backdrop_path}) => {
             return (
               <MovieCard.Card key={id + title} backgroundImage={backdrop_path}>
-                <MovieCard.Blur />
+                <MovieCard.HeroImage backgroundImage={backdrop_path}/>
                 <MovieCard.ContentWrap>
                   <MovieCard.Header>{title}</MovieCard.Header>
                   <MovieCard.Body>{overview}</MovieCard.Body>

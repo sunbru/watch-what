@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Card, ContentWrap, Header, Body, Blur, Image} from './MovieCard.styles';
+import {Container, Card, ContentWrap, GradientOverlay, HeroImage, Header, Body, Blur, Image} from './MovieCard.styles';
 
 export default function MovieCard({ children, ...restProps }) {
   return (
@@ -9,13 +9,23 @@ export default function MovieCard({ children, ...restProps }) {
 
 MovieCard.Card = function MovieCardCard({ children, ...restProps }) {
   return (
-    <Card {...restProps}>{children}</Card>
+    <Card {...restProps}>
+      <GradientOverlay>
+        {children}
+      </GradientOverlay>
+    </Card>
   );
 };
 
 MovieCard.ContentWrap = function MovieCardContentWrap({ children, ...restProps }) {
   return (
     <ContentWrap {...restProps}>{children}</ContentWrap>
+  );
+};
+
+MovieCard.HeroImage = function MovieCardHeroImage({ children, ...restProps }) {
+  return (
+    <HeroImage {...restProps}>{children}</HeroImage>
   );
 };
 
