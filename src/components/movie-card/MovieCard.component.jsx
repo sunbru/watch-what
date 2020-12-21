@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Card, Header, Body, Image} from './MovieCard.styles';
+import {Container, Card, ContentWrap, Header, Body, Blur, Image} from './MovieCard.styles';
 
 export default function MovieCard({ children, ...restProps }) {
   return (
@@ -13,6 +13,12 @@ MovieCard.Card = function MovieCardCard({ children, ...restProps }) {
   );
 };
 
+MovieCard.ContentWrap = function MovieCardContentWrap({ children, ...restProps }) {
+  return (
+    <ContentWrap {...restProps}>{children}</ContentWrap>
+  );
+};
+
 MovieCard.Header = function MovieCardHeader({ children, ...restProps }) {
   return (
     <Header {...restProps}>{children}</Header>
@@ -22,6 +28,12 @@ MovieCard.Header = function MovieCardHeader({ children, ...restProps }) {
 MovieCard.Body = function MovieCardBody({ children, ...restProps }) {
   return (
     <Body {...restProps}>{children}</Body>
+  );
+};
+
+MovieCard.Blur = function MovieCardBlur() {
+  return (
+    <Blur />
   );
 };
 
