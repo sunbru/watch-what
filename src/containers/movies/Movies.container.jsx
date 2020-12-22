@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {MovieCard} from '../../components';
 import {MoviesContext} from '../../context';
+import heart from '../../_assets/img/heart-outline.svg'
 
 export default function MoviesContainer({ movies }) {
   const { moviesList } = useContext(MoviesContext);
@@ -8,18 +9,18 @@ export default function MoviesContainer({ movies }) {
     <section id="movies-container">
       <MovieCard>
         {
-          moviesList.map(({id, title, overview, backdrop_path}) => {
+          moviesList.map(({id, title, overview, backdrop_path, vote_average, vote_count, release_date, original_language, genre_ids}) => {
             return (
               <MovieCard.Card key={id + title} backgroundImage={backdrop_path}>
-                <MovieCard.Blur />
+                <MovieCard.HeroImage backgroundImage={backdrop_path}/>
                 <MovieCard.ContentWrap>
                   <MovieCard.Header>{title}</MovieCard.Header>
-                  <MovieCard.Body>{overview}</MovieCard.Body>
+                  <MovieCard.GenresWrap genres={genre_ids} />
+                  <MovieCard.SummaryWrap>
+                    <MovieCard.Ratings>{vote_average} <img src={heart}/>{vote_count}</MovieCard.Ratings>
+                  </MovieCard.SummaryWrap>
+                  <MovieCard.Body overview={overview} />
                 </MovieCard.ContentWrap>
-                {/*<MovieCard.Image
-                  src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}
-                  alt={`${title} poster`}
-                />*/}
               </MovieCard.Card>
             )
           })
