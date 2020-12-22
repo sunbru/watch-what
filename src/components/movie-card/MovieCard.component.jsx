@@ -66,9 +66,14 @@ MovieCard.Genre = function MovieCardGenre({ children, ...restProps }) {
   );
 };
 
-MovieCard.Body = function MovieCardBody({ children, ...restProps }) {
+MovieCard.Body = function MovieCardBody({ overview }) {
+
   return (
-    <Body {...restProps}>{children}</Body>
+    <Body>
+    {
+      `${overview.substring(1, 150)}...`
+    }
+    </Body>
   );
 };
 

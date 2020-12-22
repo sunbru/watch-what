@@ -1,5 +1,17 @@
 const API_KEY = process.env.REACT_APP_API_KEY;
+const OMDB_API_KEY = process.env.REACT_APP_API_KEY_OMDB;
 
+
+export const fetchOMDBMovie = async (query) => {
+  const URL = `http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&title=${query}`;
+  const response = await fetch(URL);
+  const body = await response.json();
+
+  if (response.status !== 200) {
+    throw Error(body.message);
+  };
+  return body.data;
+}
 export const fetchMovie = async (id) => {
   const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
   const response = await fetch(URL);
@@ -12,7 +24,7 @@ export const fetchMovie = async (id) => {
 };
 
 export const fetchPopular = async () => {
-  const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+  const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=2&region=US`;
   const response = await fetch(URL);
   const body = await response.json();
   if (response.status !== 200) {

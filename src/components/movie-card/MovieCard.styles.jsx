@@ -18,7 +18,13 @@ export const Card = styled.div`
   /* border: 1px solid black; */
   border-radius: 5px;
   margin: 2rem 0;
-  box-shadow: 5px 5px 115px -14px black;
+  /* box-shadow: 5px 5px 115px -14px black; */
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+    z-index: 100;
+  }
 
   @media (max-width: 1000px) {
     max-width: 360px;
@@ -65,7 +71,7 @@ export const ContentWrap = styled.div`
   padding: 0 1.5rem 1rem 1.5rem;
   background-color: #000000;
   width: 100%;
-  height: 40%;
+  height: 280px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   overflow: hidden;
@@ -74,7 +80,7 @@ export const ContentWrap = styled.div`
 export const SummaryWrap = styled.div`
   display: flex;
   justify-content: space-between;
-  color: white;
+  color: #e7e7e7;
   margin-bottom: .5rem;
 `;
 
@@ -104,7 +110,7 @@ export const GenresWrap = styled.div`
 
 export const Genre = styled.div`
   display: inline-block;
-  color: white;
+  color: #E7E7E7;
   margin-right: 5px;
 `;
 
@@ -126,7 +132,10 @@ export const Header = styled.h3`
 `;
 
 export const Body = styled.p`
+  font-size: .95rem;
   color: white;
+  height: 150px;
+  overflow: scroll;
 `;
 
 export const Image = styled.img`
