@@ -13,7 +13,10 @@ body {
   color: #030303;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #1a1a2e;
+  /* background-color: #1a1a2e; */
+  /* background-color: #030303; */
+  background-color: #070707;
+  /* background-color: #301935; */
 }
 
 code {

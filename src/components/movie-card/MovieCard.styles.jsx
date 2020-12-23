@@ -21,10 +21,14 @@ export const Card = styled.div`
   /* box-shadow: 5px 5px 115px -14px black; */
   transition: all 0.5s ease-in-out;
 
-  &:hover {
+  /* &:hover {
     transform: translateY(-5px);
     z-index: 100;
   }
+
+  &:active {
+    transform: translateY(3px);
+  } */
 
   @media (max-width: 1000px) {
     max-width: 360px;
@@ -71,7 +75,7 @@ export const ContentWrap = styled.div`
   padding: 0 1.5rem 1rem 1.5rem;
   background-color: #000000;
   width: 100%;
-  height: 280px;
+  /* height: 300px; */
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   overflow: hidden;
@@ -83,6 +87,34 @@ export const SummaryWrap = styled.div`
   color: #e7e7e7;
   margin-bottom: .5rem;
 `;
+
+export const Footer = styled.div`
+  display: flex;
+  -webkit-align-content: flex-end;
+  align-self: flex-end;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #C21807;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: .8rem;
+
+  .watch-now, .learn-more {
+    display: flex;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #C21807;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+`
 
 export const Ratings = styled.div`
   color: white;
@@ -126,7 +158,7 @@ export const Blur = styled.div`
 export const Header = styled.h3`
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  font-size: 36px;
+  font-size: 30px;
   color: white;
   margin-bottom: .5rem;
 `;
@@ -134,7 +166,8 @@ export const Header = styled.h3`
 export const Body = styled.p`
   font-size: .95rem;
   color: white;
-  height: 150px;
+  margin-bottom: 2rem;
+  /* height: 150px; */
   overflow: scroll;
 `;
 

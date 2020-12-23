@@ -24,7 +24,7 @@ export const fetchMovie = async (id) => {
 };
 
 export const fetchPopular = async () => {
-  const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=2&region=US`;
+  const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1&region=US`;
   const response = await fetch(URL);
   const body = await response.json();
   if (response.status !== 200) {
