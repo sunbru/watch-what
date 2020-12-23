@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Card, ContentWrap, GradientOverlay, GenresWrap, SummaryWrap, HeroImage, Header, Genre, Body, Ratings, Blur, Image} from './MovieCard.styles';
+import {Container, Card, ContentWrap, GradientOverlay, GenresWrap, SummaryWrap, HeroImage, Header, Footer, Genre, Body, Ratings, Blur, Image} from './MovieCard.styles';
 import {findGenre} from '../../helpers';
 
 export default function MovieCard({ children, ...restProps }) {
@@ -82,6 +82,16 @@ MovieCard.Ratings = function MovieCardRatings({ children, ...restProps }) {
     <Ratings {...restProps}>{children}</Ratings>
   );
 };
+
+MovieCard.Footer = function MovieCardFooter() {
+  return (
+    <Footer>
+      <div class="watch-now">&#9658; WATCH NOW</div>
+      <div class="learn-more">LEARN MORE</div>
+      <div class="share"></div>
+    </Footer>
+  )
+}
 
 MovieCard.Blur = function MovieCardBlur() {
   return (
