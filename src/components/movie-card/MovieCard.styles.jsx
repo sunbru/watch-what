@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import {Link as ReactRouterLink} from 'react-router-dom';
 
 export const Container = styled.div`
   display: flex;
@@ -121,6 +122,24 @@ export const Footer = styled.div`
     vertical-align: middle;
   }
 `
+export const LearnMore = styled(ReactRouterLink)`
+  display: flex;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #C21807;
+  transition: all 0.3s ease-in;
+  text-decoration: none;
+  color: #C21807;
+  
+  &:hover {
+    background-color: #C21807;
+    color: white;
+  }
+
+  &:active {
+    transform: translateY(1.5px);
+  }
+`;
 
 export const Ratings = styled.div`
   color: white;
