@@ -88,7 +88,7 @@ MovieCard.Footer = function MovieCardFooter() {
     <Footer>
       <div class="watch-now">&#9658; WATCH NOW</div>
       <div class="learn-more">LEARN MORE</div>
-      <div class="share"></div>
+      <div class="share"><i class="fa fa-share-alt"></i></div>
     </Footer>
   )
 }
