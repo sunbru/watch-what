@@ -51,9 +51,11 @@ export const LogoWrap = styled(ReactRouterLink)`
 `;
 
 export const LogoText = styled.div`
+  font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
-  font-weight: 300;
-  color: #303030;
+  font-weight: 400;
+  color: white;
+  /* color: #303030; */
   text-decoration: none;
   vertical-align: center;
   margin: auto;
@@ -64,79 +66,142 @@ export const LogoText = styled.div`
 `;
 
 export const ButtonsContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-top: 1rem;
-    position: relative;
-
-    &>a:nth-of-type(2) {
-      margin: .5rem auto!important;
-    }
-    &>a:not(:nth-of-type(2)) {
-      margin: 0 auto;
-    }
-
-    span {
-      z-index: 100;
-      transition: all 0.2s ease-in-out;
-      &:before {
-        content: '';
-        position: absolute;
-        height: 5px;
-        width: 40%;
-        right: 0;
-        top: 0;
-        background: #303030;
-      }
-      &:after {
-        position: absolute;
-        content: '';
-        height: 5px;
-        background: #303030;
-        width: 40%;
-        top: 1rem;
-        right: 0;
-        transition: all 1s ease-in-out;
-      }
-
-      &:hover:after {
-        top: 7rem;
-      }
-    }
+  display: flex;
+  justify-content: space-between;
+  &>:first-child, &>:nth-child(2) {
+    margin-right: 1rem;
+  }
 `;
 
 export const Anchor = styled.a`
   font-size: 1.5rem;
   font-weight: 500;
-  color: #303030;
+  color: #ffffff;
   position: relative;
   text-decoration: none;
-  transition: all 0.5s ease-in;
-  opacity: ${props => props.showMenuItem ? 1 : 0};
+  margin-right: 1rem;
+  &:after {
+    position: absolute;
+    left: 0%;
+    content: '';
+    height: 2px;
+    background: #ffffff;
+    transition: all 0.5s ease-in;
+    width: 0;
+    bottom: -1px;
+  }
+  &:hover:after {
+    width: 70%;
+    left: 0;
+  }
 
   @media (max-width: 1000px) {
     font-size: 1.2rem;
+    display: none !important;
   }
 `;
 
 export const ButtonLink = styled(ReactRouterLink)`
   font-size: 1.5rem;
   font-weight: 500;
-  color: #303030;
+  color: #ffffff;
   position: relative;
   text-decoration: none;
-  transition: all 0.5s ease-in;
-  opacity: ${props => props.showMenuItem ? 1 : 0};
+  &:after {
+    position: absolute;
+    left: 100%;
+  	content: '';
+  	height: 2px;
+    background: #ffffff;
+    transition: all 0.5s ease-in;
+    width: 0;
+    bottom: -1px;
+  }
+  &:hover:after {
+    width: 70%;
+    left: 0;
+  }
 
   @media (max-width: 1000px) {
     font-size: 1.2rem;
+    display: none !important;
   }
 `;
 
-export const MobileMenu = styled.div`
-  display: none;
-  background-image: require('../../_assets/img/waves-menu.svg');
-  @media (max-width: 1000px) {
-    display: block !important;
-  }
-`;
+// export const ButtonsContainer = styled.div`
+//     display: flex;
+//     flex-direction: column;
+//     margin-top: 1rem;
+//     position: relative;
+//
+//     &>a:nth-of-type(2) {
+//       margin: .5rem auto!important;
+//     }
+//     &>a:not(:nth-of-type(2)) {
+//       margin: 0 auto;
+//     }
+//
+//     span {
+//       z-index: 100;
+//       transition: all 0.2s ease-in-out;
+//       &:before {
+//         content: '';
+//         position: absolute;
+//         height: 5px;
+//         width: 40%;
+//         right: 0;
+//         top: 0;
+//         background: #303030;
+//       }
+//       &:after {
+//         position: absolute;
+//         content: '';
+//         height: 5px;
+//         background: #303030;
+//         width: 40%;
+//         top: 1rem;
+//         right: 0;
+//         transition: all 1s ease-in-out;
+//       }
+//
+//       &:hover:after {
+//         top: 7rem;
+//       }
+//     }
+// `;
+//
+// export const Anchor = styled.a`
+//   font-size: 1.5rem;
+//   font-weight: 500;
+//   color: #303030;
+//   position: relative;
+//   text-decoration: none;
+//   transition: all 0.5s ease-in;
+//   opacity: ${props => props.showMenuItem ? 1 : 0};
+//
+//   @media (max-width: 1000px) {
+//     font-size: 1.2rem;
+//   }
+// `;
+//
+// export const ButtonLink = styled(ReactRouterLink)`
+//   font-size: 1.5rem;
+//   font-weight: 500;
+//   color: #303030;
+//   position: relative;
+//   text-decoration: none;
+//   transition: all 0.5s ease-in;
+//   opacity: ${props => props.showMenuItem ? 1 : 0};
+//
+//   @media (max-width: 1000px) {
+//     font-size: 1.2rem;
+//   }
+// `;
+//
+// export const MobileMenu = styled.div`
+//   display: none;
+//   background-image: require('../../_assets/img/waves-menu.svg');
+//   @media (max-width: 1000px) {
+//     display: block !important;
+//   }
+// `;

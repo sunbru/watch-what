@@ -104,15 +104,21 @@ export const Footer = styled.div`
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #C21807;
-    transition: all 0.2s ease-in;
+    transition: all 0.3s ease-in;
 
     &:hover {
-      transform: translateY(-2px);
+      background-color: #C21807;
+      color: white;
     }
 
     &:active {
-      transform: translateY(1px);
+      transform: translateY(1.5px);
     }
+  }
+
+  .share {
+    font-size: 20px;
+    vertical-align: middle;
   }
 `
 
