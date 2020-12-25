@@ -1,9 +1,18 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {MovieDetailsContainer} from '../../containers';
+import {MovieContext} from '../../context';
 
 export default function Movie() {
+  const { movie, setMovie } = useContext(MovieContext);
   return (
-    <MovieDetailsContainer>
-    </MovieDetailsContainer>
+    <MovieContext.Provider value={{ movie, setMovie }}>
+      <MovieDetailsContainer>
+        {
+          movie.length > 0 ?
+          movie :
+          null
+        }
+      </MovieDetailsContainer>
+    </MovieContext.Provider>
   )
 }

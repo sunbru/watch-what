@@ -9,6 +9,7 @@ export default function App() {
       <Route exact path={ROUTES.HOME} component={Home} />
       <Route exact path={ROUTES.ABOUT} component={About} />
       <Route exact path={ROUTES.MOVIE} component={Movie} />
+      <Route exact path={ROUTES.MOVIESLUG} component={Movie} />
     </Router>
   );
 };
