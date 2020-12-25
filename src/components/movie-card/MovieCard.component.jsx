@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useState, useCallback} from 'react';
+import {useHistory} from 'react-router-dom';
 import {Container, Card, ContentWrap, GradientOverlay, GenresWrap, SummaryWrap, HeroImage, Header, LearnMore, Footer, Genre, Body, Ratings, Blur, Image} from './MovieCard.styles';
+import {MovieContext} from '../../context';
 import {findGenre} from '../../helpers';
 
 export default function MovieCard({ children, ...restProps }) {
@@ -84,14 +86,28 @@ MovieCard.Ratings = function MovieCardRatings({ children, ...restProps }) {
 };
 
 MovieCard.Footer = function MovieCardFooter({ title }) {
+  const [movie, setMovie] = useState("");
+  const history = useHistory();
+  // const handleClick = useCallback(() =>
+  //   setMovie(title)
+  //   history.push(`/movie/${title}`),
+  //   [history]
+  // );
+  const handleClick = (event) => {
+    event.preventDefault();
+    console.log(movie)
+    setMovie(title);
+    history.push(`/movie/${title}`)
+  };
+
   return (
     <Footer>
       <div class="watch-now">&#9658; WATCH NOW</div>
-      <LearnMore to={`/movie/${title}`}>LEARN MORE</LearnMore>
+      <LearnMore onClick={handleClick} to={`/movie/${title}`}>LEARN MORE</LearnMore>
       <div class="share"><i class="fa fa-share-alt"></i></div>
     </Footer>
-  )
-}
+  );
+};
 
 MovieCard.Blur = function MovieCardBlur() {
   return (
