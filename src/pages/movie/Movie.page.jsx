@@ -1,28 +1,26 @@
 import React, {useState, useEffect} from 'react';
 import {MovieDetailsContainer} from '../../containers';
-import {MovieContext} from '../../context';
+import {SelectedMovieContext} from '../../context';
 import {useLocation} from 'react-router-dom';
 import {fetchOMDBMovie} from '../../adapters';
 
 export default function Movie() {
-  const [selectedMovie, setMovie] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState([]);
   let location = useLocation();
   useEffect(() => {
-    fetchOMDBMovie(location.pathname)
+    return fetchOMDBMovie(location.pathname)
     .then(movieData => {
-      console.log("Inside movie detailed page", movieData)
-      setMovie(movieData)
+      setSelectedMovie(movieData)
     });
   }, []);
+  console.log(selectedMovie)
   return (
-    <MovieContext.Provider value={{ selectedMovie, setMovie }}>
-      <MovieDetailsContainer>
+    <SelectedMovieContext.Provider value={{ selectedMovie, setSelectedMovie }}>
         {
           selectedMovie ?
-          selectedMovie :
+          <MovieDetailsContainer movie={selectedMovie}/> :
           null
         }
-      </MovieDetailsContainer>
-    </MovieContext.Provider>
+    </SelectedMovieContext.Provider>
   )
 }
