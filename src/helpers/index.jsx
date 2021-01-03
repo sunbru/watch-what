@@ -9,3 +9,9 @@ export const findGenre = (id) => {
     };
   });
 };
+
+
+export const parsePathname = (pathname) => {
+  let query = pathname.split('/')[2];
+  return query;
+};

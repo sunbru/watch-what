@@ -1,10 +1,15 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import {MovieDetails} from '../../components';
+import {MovieContext} from '../../context';
 
 export default function MovieDetailsContainer() {
+  const { selectedMovie, setMovie } = useContext(MovieContext);
+  console.log("Inside moviedetailscontainer", selectedMovie)
   return (
     <MovieDetails>
-    HIHIHI
+      <MovieDetails.Card>
+        HEY
+      </MovieDetails.Card>
     </MovieDetails>
   );
 };
