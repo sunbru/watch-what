@@ -6,7 +6,7 @@ const OMDB_API_KEY = process.env.REACT_APP_API_KEY_OMDB;
 
 export const fetchOMDBMovie = async (query) => {
   let parsedQuery = parsePathname(query);
-  const URL = `http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&title=${parsedQuery}`;
+  const URL = `http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&t=${parsedQuery}`;
   const response = await fetch(URL);
   const body = await response.json();
 
@@ -15,7 +15,8 @@ export const fetchOMDBMovie = async (query) => {
   };
   console.log(body)
   return body.data;
-}
+};
+
 export const fetchMovie = async (id) => {
   const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
   const response = await fetch(URL);
