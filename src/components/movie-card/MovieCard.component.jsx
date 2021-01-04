@@ -1,7 +1,7 @@
-import React, {useState, useCallback} from 'react';
+import React, {useState, useContext, useCallback} from 'react';
 import {useHistory} from 'react-router-dom';
 import {Container, Card, ContentWrap, GradientOverlay, GenresWrap, SummaryWrap, HeroImage, Header, LearnMore, Footer, Genre, Body, Ratings, Blur, Image} from './MovieCard.styles';
-import {MovieContext} from '../../context';
+import {SelectedMovieContext, BackgroundImageContext} from '../../context';
 import {findGenre} from '../../helpers';
 
 export default function MovieCard({ children, ...restProps }) {
@@ -85,17 +85,15 @@ MovieCard.Ratings = function MovieCardRatings({ children, ...restProps }) {
   );
 };
 
-MovieCard.Footer = function MovieCardFooter({ title }) {
+MovieCard.Footer = function MovieCardFooter({ title, backgroundImage }) {
   const [movie, setMovie] = useState("");
+  const [backdrop, setBackdrop] = useState("");
   const history = useHistory();
-  // const handleClick = useCallback(() =>
-  //   setMovie(title)
-  //   history.push(`/movie/${title}`),
-  //   [history]
-  // );
+
   const handleClick = (event) => {
     event.preventDefault();
     console.log(movie)
+    setBackdrop(backgroundImage);
     setMovie(title);
     history.push(`/movie/${title}`)
   };
@@ -103,7 +101,9 @@ MovieCard.Footer = function MovieCardFooter({ title }) {
   return (
     <Footer>
       <div class="watch-now">&#9658; WATCH NOW</div>
-      <LearnMore onClick={handleClick} to={`/movie/${title}`}>LEARN MORE</LearnMore>
+      <BackgroundImageContext.Provider value={{ backdrop, setBackdrop }}>
+        <LearnMore onClick={handleClick} to={`/movie/${title}`}>LEARN MORE</LearnMore>
+      </BackgroundImageContext.Provider>
       <div class="share"><i class="fa fa-share-alt"></i></div>
     </Footer>
   );

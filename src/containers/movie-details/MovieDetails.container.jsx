@@ -1,16 +1,16 @@
 import React,{useContext} from 'react';
 import {MovieDetails} from '../../components';
-import {SelectedMovieContext} from '../../context';
+import {SelectedMovieContext, BackgroundImageContext} from '../../context';
 
-export default function MovieDetailsContainer(movie) {
-  // const { selectedMovie, setMovie } = useContext(SelectedMovieContext);
-  // console.log("Inside moviedetailscontainer", selectedMovie)
-  // console.log("Inside moviedetailscontainer", movie)
+export default function MovieDetailsContainer() {
+  const {selectedMovie} = useContext(SelectedMovieContext);
+  console.log("Inside moviedetailscontainer", selectedMovie)
   return (
-    <MovieDetails>
+    <MovieDetails backgroundImage={selectedMovie.Poster}>
       <MovieDetails.Card>
         <MovieDetails.ContentWrap>
-          <MovieDetails.Title>{movie.Title}</MovieDetails.Title>
+          <MovieDetails.Title>{selectedMovie.Title}</MovieDetails.Title>
+          <MovieDetails.Body>{selectedMovie.Plot}</MovieDetails.Body>
         </MovieDetails.ContentWrap>
       </MovieDetails.Card>
     </MovieDetails>

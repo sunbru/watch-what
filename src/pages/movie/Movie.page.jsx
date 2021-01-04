@@ -1,26 +1,30 @@
 import React, {useState, useEffect} from 'react';
-import {MovieDetailsContainer} from '../../containers';
+import {HeaderContainer, MovieDetailsContainer} from '../../containers';
 import {SelectedMovieContext} from '../../context';
 import {useLocation} from 'react-router-dom';
 import {fetchOMDBMovie} from '../../adapters';
 
 export default function Movie() {
   const [selectedMovie, setSelectedMovie] = useState([]);
+  const [loaded, setLoaded] = useState(false);
   let location = useLocation();
   useEffect(() => {
-    return fetchOMDBMovie(location.pathname)
+    fetchOMDBMovie(location.pathname)
     .then(movieData => {
-      setSelectedMovie(movieData)
+      setLoaded(true);
+      setSelectedMovie(movieData);
     });
   }, []);
-  console.log(selectedMovie)
   return (
     <SelectedMovieContext.Provider value={{ selectedMovie, setSelectedMovie }}>
+      <section id="movie-page">
+        <HeaderContainer />
         {
-          selectedMovie ?
-          <MovieDetailsContainer movie={selectedMovie}/> :
+          loaded ?
+          <MovieDetailsContainer  /> :
           null
         }
+      </section>
     </SelectedMovieContext.Provider>
   )
 }
