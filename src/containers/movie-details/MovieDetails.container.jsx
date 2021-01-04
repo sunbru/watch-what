@@ -1,6 +1,6 @@
 import React,{useContext} from 'react';
 import {MovieDetails} from '../../components';
-import {SelectedMovieContext} from '../../context';
+import {SelectedMovieContext, BackgroundImageContext} from '../../context';
 
 export default function MovieDetailsContainer() {
   const {selectedMovie} = useContext(SelectedMovieContext);

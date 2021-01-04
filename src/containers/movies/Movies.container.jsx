@@ -20,7 +20,7 @@ export default function MoviesContainer({ movies }) {
                     <MovieCard.Ratings>{vote_average} <img src={heart}/>{vote_count}</MovieCard.Ratings>
                   </MovieCard.SummaryWrap>
                   <MovieCard.Body overview={overview} />
-                  <MovieCard.Footer title={title} />
+                  <MovieCard.Footer title={title} backgroundImage={backdrop_path} />
                 </MovieCard.ContentWrap>
               </MovieCard.Card>
             )
