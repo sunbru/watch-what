@@ -88,11 +88,7 @@ MovieCard.Ratings = function MovieCardRatings({ children, ...restProps }) {
 MovieCard.Footer = function MovieCardFooter({ title }) {
   const [movie, setMovie] = useState("");
   const history = useHistory();
-  // const handleClick = useCallback(() =>
-  //   setMovie(title)
-  //   history.push(`/movie/${title}`),
-  //   [history]
-  // );
+
   const handleClick = (event) => {
     event.preventDefault();
     console.log(movie)

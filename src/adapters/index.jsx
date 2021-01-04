@@ -13,8 +13,7 @@ export const fetchOMDBMovie = async (query) => {
   if (response.status !== 200) {
     throw Error(body.message);
   };
-  console.log(body)
-  return body.data;
+  return body;
 };
 
 export const fetchMovie = async (id) => {
