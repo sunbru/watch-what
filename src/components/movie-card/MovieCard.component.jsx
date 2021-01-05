@@ -85,15 +85,13 @@ MovieCard.Ratings = function MovieCardRatings({ children, ...restProps }) {
   );
 };
 
-MovieCard.Footer = function MovieCardFooter({ title, backgroundImage }) {
+MovieCard.Footer = function MovieCardFooter({ title }) {
   const [movie, setMovie] = useState("");
-  const [backdrop, setBackdrop] = useState("");
   const history = useHistory();
 
   const handleClick = (event) => {
     event.preventDefault();
     console.log(movie)
-    setBackdrop(backgroundImage);
     setMovie(title);
     history.push(`/movie/${title}`)
   };
@@ -101,9 +99,7 @@ MovieCard.Footer = function MovieCardFooter({ title, backgroundImage }) {
   return (
     <Footer>
       <div class="watch-now">&#9658; WATCH NOW</div>
-      <BackgroundImageContext.Provider value={{ backdrop, setBackdrop }}>
-        <LearnMore onClick={handleClick} to={`/movie/${title}`}>LEARN MORE</LearnMore>
-      </BackgroundImageContext.Provider>
+      <LearnMore onClick={handleClick} to={`/movie/${title}`}>LEARN MORE</LearnMore>
       <div class="share"><i class="fa fa-share-alt"></i></div>
     </Footer>
   );

@@ -17,14 +17,15 @@ export const fetchOMDBMovie = async (query) => {
 };
 
 export const fetchMovie = async (id) => {
-  const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
+  let parsedQuery = parsePathname(id);
+  const URL = `https://api.themoviedb.org/3/movie/${parsedQuery}?api_key=${API_KEY}`;
   const response = await fetch(URL);
   const body = await response.json();
 
   if (response.status !== 200) {
     throw Error(body.message);
   };
-  return body.data;
+  return body;
 };
 
 export const fetchPopular = async () => {
