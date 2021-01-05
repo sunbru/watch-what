@@ -1,9 +1,13 @@
 import React from 'react';
-import {Container, Card, ContentWrap, Title, Body} from './MovieDetails.styles';
+import {Container, GradientOverlay, Card, ContentWrap, Title, Body} from './MovieDetails.styles';
 
 export default function MovieDetails({ children, ...restProps }) {
   return (
-    <Container {...restProps}>{children}</Container>
+    <Container {...restProps}>
+      <GradientOverlay>
+      {children}
+      </GradientOverlay>
+    </Container>
   );
 };
 
