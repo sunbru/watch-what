@@ -6,8 +6,8 @@ export default function MovieDetailsContainer() {
   const {selectedMovie} = useContext(SelectedMovieContext);
   console.log("Inside moviedetailscontainer", selectedMovie)
   return (
-    <MovieDetails backgroundImage={selectedMovie.backdrop_path}>
-      <MovieDetails.Card>
+    <MovieDetails>
+      <MovieDetails.Card backgroundImage={selectedMovie.backdrop_path}>
         <MovieDetails.ContentWrap>
           <MovieDetails.Title>{selectedMovie.title}</MovieDetails.Title>
           <MovieDetails.Body>{selectedMovie.overview}</MovieDetails.Body>

@@ -16,9 +16,9 @@ export default function HeaderContainer() {
         alt={"Watch Wat logo"}
       />
       <Header.ButtonsContainer onMouseEnter={toggleMenu} onMouseLeave={toggleMenu}>
-        <Header.ButtonLink showMenuItem={showMenuItem} to={ROUTES.HOME}>Home</Header.ButtonLink>
-        <Header.Anchor showMenuItem={showMenuItem} href={ROUTES.GITHUB} rel="noopener noreferrer">Github</Header.Anchor>
-        <Header.ButtonLink showMenuItem={showMenuItem} to={ROUTES.ABOUT}>About</Header.ButtonLink>
+        <Header.ButtonLink  to={ROUTES.HOME}>Home</Header.ButtonLink>
+        <Header.Anchor  href={ROUTES.GITHUB} rel="noopener noreferrer">Github</Header.Anchor>
+        <Header.ButtonLink  to={ROUTES.ABOUT}>About</Header.ButtonLink>
       </Header.ButtonsContainer>
     </Header>
   );
