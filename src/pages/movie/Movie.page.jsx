@@ -20,7 +20,7 @@ export default function Movie() {
       <section id="movie-page">
         <HeaderContainer />
         {
-          loaded ?
+          loaded && selectedMovie ?
           <MovieDetailsContainer  /> :
           null
         }

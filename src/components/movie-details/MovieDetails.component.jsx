@@ -3,17 +3,17 @@ import {Container, GradientOverlay, Card, ContentWrap, Title, Body} from './Movi
 
 export default function MovieDetails({ children, ...restProps }) {
   return (
-    <Container {...restProps}>
-      <GradientOverlay>
-      {children}
-      </GradientOverlay>
-    </Container>
+    <Container {...restProps}>{children}</Container>
   );
 };
 
 MovieDetails.Card = function MovieDetailsCard({ children, ...restProps }) {
   return (
-    <Card {...restProps}>{children}</Card>
+    <Card {...restProps}>
+      <GradientOverlay>
+      {children}
+      </GradientOverlay>
+    </Card>
   );
 };
 

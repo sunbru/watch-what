@@ -4,18 +4,9 @@ export const Container = styled.div`
   display: flex:
   flex-direction: column;
   /* linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ) */
-  background: url(https://image.tmdb.org/t/p/original${props => props.backgroundImage}) no-repeat top right;
-  background-size: cover;
-  background-position: right;
-  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom,
-    color-stop(0.00,  rgba(0,0,0,1)),
-    color-stop(0.35,  rgba(0,0,0,1)),
-    color-stop(0.50,  rgba(0,0,0,1)),
-    color-stop(0.65,  rgba(0,0,0,1)),
-    color-stop(0.85,  rgba(0,0,0,0.6)),
-    color-stop(1.00,  rgba(0,0,0,0)));
   height: 100vh;
   width: 100vw;
+  padding: 2rem;
 `;
 
 export const GradientOverlay = styled.div`
@@ -41,6 +32,17 @@ export const Card = styled.div`
   width: 100%;
   text-align: left;
   padding: 2rem;
+  
+  background: url(https://image.tmdb.org/t/p/original${props => props.backgroundImage}) no-repeat top right;
+  background-size: cover;
+  background-position: top;
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom,
+    color-stop(0.00,  rgba(0,0,0,1)),
+    color-stop(0.35,  rgba(0,0,0,1)),
+    color-stop(0.50,  rgba(0,0,0,1)),
+    color-stop(0.65,  rgba(0,0,0,1)),
+    color-stop(0.85,  rgba(0,0,0,0.6)),
+    color-stop(1.00,  rgba(0,0,0,0)));
 `;
 
 export const Title = styled.h3`
